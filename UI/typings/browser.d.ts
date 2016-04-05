@@ -1,2 +1,4 @@
-/// <reference path="browser\ambient\angular\angular.d.ts" />
-/// <reference path="browser\ambient\toastr\toastr.d.ts" />
+/// <reference path="browser/ambient/angular-ui-router/index.d.ts" />
+/// <reference path="browser/ambient/angular/index.d.ts" />
+/// <reference path="browser/ambient/jquery/index.d.ts" />
+/// <reference path="browser/ambient/toastr/index.d.ts" />

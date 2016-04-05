@@ -1,5 +1,5 @@
 ﻿/// <reference path="../typings/main.d.ts" />
-module BigRedOctopus {
+module ZacTrac {
 
     interface IRouteState extends angular.ui.IState {
         params: IRouteParams
@@ -55,13 +55,6 @@ module BigRedOctopus {
             }]
         );
 
-    app.config(function( $mdIconProvider ){
-        var rootURL = "images/";
-
-        // Register the user `avatar` icons
-        $mdIconProvider
-            .icon("menu", rootURL + "menu.svg", 24)
-    });
 
     export function addAngularState(id: string, url: string, title: string, controller: Function, template: string) {
         var stateConfig: IRouteState = {

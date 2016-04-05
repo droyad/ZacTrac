@@ -7,7 +7,7 @@ var filenames = {
   vendorJs: "vendor.js",
   vendorCss: "vendor.css"
 };
-var outputDir = "../Mobile/app";
+var outputDir = "../Web/ui";
 var paths = {
   src: {
     appIndex: "index.html",

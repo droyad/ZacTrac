@@ -1,0 +1,26 @@
+<div layout="column" ng-cloak>
+    <md-toolbar layout="row">
+        <md-button class="menu" ng-click="vm.toggleSidebar()">
+            <md-icon md-svg-icon="menu" ></md-icon>
+        </md-button>
+        <h3>ZacTrac</h3>
+    </md-toolbar>
+    <div class="container" layout="row" flex>
+        <md-sidenav
+                ng-click="vm.toggleSidebar()"
+                md-component-id="left"
+                md-is-locked-open="false"
+                class="md-whiteframe-4dp">
+
+            <md-list>
+                <md-list-item>
+                    <md-button ui-sref="layout.home">Home</md-button>
+                </md-list-item>
+            </md-list>
+        </md-sidenav>
+
+        <md-content flex id="content">
+            <ui-view></ui-view>
+        </md-content>
+    </div>
+</div>

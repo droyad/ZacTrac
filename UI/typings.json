@@ -1,6 +1,8 @@
 {
   "ambientDependencies": {
     "angular": "github:DefinitelyTyped/DefinitelyTyped/angularjs/angular.d.ts#75357ab8101c32379e2a59f396161a66688c6d26",
+    "angular-ui-router": "github:DefinitelyTyped/DefinitelyTyped/angular-ui-router/angular-ui-router.d.ts#7de6c3dd94feaeb21f20054b9f30d5dabc5efabd",
+    "jquery": "github:DefinitelyTyped/DefinitelyTyped/jquery/jquery.d.ts#a36e6ad2f472741b1c22c2af955bf13b7c62e146",
     "toastr": "github:DefinitelyTyped/DefinitelyTyped/toastr/toastr.d.ts#a36e6ad2f472741b1c22c2af955bf13b7c62e146"
   }
 }
