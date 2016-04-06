@@ -2,15 +2,15 @@
 module ZacTrac {
 
     interface IRouteState extends angular.ui.IState {
-        params: IRouteParams
+        params:IRouteParams
     }
 
     interface IRouteParams extends angular.ui.IStateOptions {
-        title: string;
+        title:string;
     }
 
-    function httpErrorHandler($httpProvider: ng.IHttpProvider) {
-        var interceptor = ($q: ng.IQService) => {
+    function httpErrorHandler($httpProvider:ng.IHttpProvider) {
+        var interceptor = ($q:ng.IQService) => {
             return {
                 'requestError': response => {
                     toastr.error(response.message || response.statusText || "An error occured");
@@ -28,10 +28,10 @@ module ZacTrac {
     };
 
     export var app = angular.module("app", [
-        "ng",
-        "ui.router",
-        "ngMaterial"
-    ])
+            "ng",
+            "ui.router",
+            "ngMaterial"
+        ])
         .config(httpErrorHandler)
         .config([
             "$httpProvider", $httpProvider => {
@@ -44,7 +44,7 @@ module ZacTrac {
             }
         ])
         .config(
-            ($urlRouterProvider: angular.ui.IUrlRouterProvider) => {
+            ($urlRouterProvider:angular.ui.IUrlRouterProvider) => {
                 $urlRouterProvider.when("", "/")
                     .otherwise(() => alert('not found'));
             }
@@ -55,16 +55,30 @@ module ZacTrac {
             }]
         );
 
+    app.config(function($mdThemingProvider) {
+        $mdThemingProvider.theme('default')
+            .primaryPalette('indigo')
+            .accentPalette('light-green');
+    });
 
-    export function addAngularState(id: string, url: string, title: string, controller: Function, template: string) {
-        var stateConfig: IRouteState = {
+    app.config(function ($mdIconProvider) {
+        var rootURL = "ui/images/";
+
+        // Register the user `avatar` icons
+        $mdIconProvider
+            .icon("menu", rootURL + "menu.svg", 24)
+    });
+
+
+    export function addAngularState(id:string, url:string, title:string, controller:Function, template:string) {
+        var stateConfig:IRouteState = {
             url: url,
             templateUrl: "app/" + template,
             controller: controller,
             controllerAs: "vm",
-            params: { title: title }
+            params: {title: title}
         };
-        app.config(($stateProvider: angular.ui.IStateProvider) =>
+        app.config(($stateProvider:angular.ui.IStateProvider) =>
             $stateProvider.state(id, stateConfig));
     }
 }

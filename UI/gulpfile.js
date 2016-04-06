@@ -113,7 +113,7 @@ gulp.task("images", function () {
   return gulp
       .src(paths.src.appImages)
       .pipe($.plumber())
-      .pipe(gulp.dest("../Mobile/images"));
+      .pipe(gulp.dest("../Web/ui/images"));
 });
 
 gulp.task("fonts", function () {
@@ -121,7 +121,7 @@ gulp.task("fonts", function () {
       .src(paths.src.appFonts)
       .pipe($.plumber())
       .pipe($.flatten())
-      .pipe(gulp.dest("../Mobile/fonts"));
+      .pipe(gulp.dest("../Web/ui/fonts"));
 });
 
 
@@ -132,20 +132,19 @@ gulp.task("app", function (cb) {
 
 gulp.task("debug", ["app"], function () {
   var sources = gulp
-      .src(["build/**/*"])
+      .src([outputDir + "/*.*"])
       .pipe($.order([
-        "vendor/jquery-2.0.3.js",
-        "vendor/angular.js",
-        "vendor/bootstrap.js",
-        "vendor/**/*.*",
+        "vendor.js",
+        "angular.js",
+        "**/*.*",
         "**/*"], {base: outputDir}));
 
   return gulp
-      .src("app/index.html")
+      .src("index.html")
       .pipe($.plumber())
       .pipe($.inject(sources, {
         addRootSlash: false,
-        ignorePath: ["app"]
+        ignorePath: ["../Web"]
       }))
       .pipe($.embedlr())
       .pipe(gulp.dest(outputDir));

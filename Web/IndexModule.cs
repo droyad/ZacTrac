@@ -6,7 +6,7 @@ namespace Web
     {
         public IndexModule()
         {
-            Get["/"] = p => "hi";
+            Get["/"] = p => Response.AsFile("ui/index.html");
         } 
     }
 }

@@ -1,16 +1,18 @@
 <div layout="column" ng-cloak>
     <md-toolbar layout="row">
-        <md-button class="menu" ng-click="vm.toggleSidebar()">
-            <md-icon md-svg-icon="menu" ></md-icon>
-        </md-button>
-        <h3>ZacTrac</h3>
+        <div class="md-toolbar-tools">
+            <md-button class="md-icon-button" ng-click="vm.toggleSidebar()">
+                <md-icon md-svg-icon="menu"></md-icon>
+            </md-button>
+           <span>Zac Trac</span>
+        </div>
     </md-toolbar>
     <div class="container" layout="row" flex>
         <md-sidenav
                 ng-click="vm.toggleSidebar()"
                 md-component-id="left"
                 md-is-locked-open="false"
-                class="md-whiteframe-4dp">
+                class="md-whiteframe-2dp">
 
             <md-list>
                 <md-list-item>
